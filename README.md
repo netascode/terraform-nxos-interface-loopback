@@ -39,6 +39,7 @@ module "nxos_interface_loopback" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_device"></a> [device](#input\_device) | A device name from the provider configuration. | `string` | `null` | no |
 | <a name="input_id"></a> [id](#input\_id) | Interface ID. Allowed format: `1`. | `number` | n/a | yes |
 | <a name="input_admin_state"></a> [admin\_state](#input\_admin\_state) | Administrative port state. Set `true` for `up` or `false` for `down`. | `bool` | `true` | no |
 | <a name="input_description"></a> [description](#input\_description) | Interface description. | `string` | `""` | no |
