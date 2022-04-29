@@ -27,13 +27,13 @@ module "nxos_interface_loopback" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
-| <a name="requirement_nxos"></a> [nxos](#requirement\_nxos) | >= 0.3.6 |
+| <a name="requirement_nxos"></a> [nxos](#requirement\_nxos) | >= 0.3.7 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_nxos"></a> [nxos](#provider\_nxos) | >= 0.3.6 |
+| <a name="provider_nxos"></a> [nxos](#provider\_nxos) | >= 0.3.7 |
 
 ## Inputs
 
