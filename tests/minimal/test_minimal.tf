@@ -18,7 +18,7 @@ module "main" {
 }
 
 data "nxos_loopback_interface" "l3LbRtdIf" {
-  interface_id = "eth1/10"
+  interface_id = "lo10"
 
   depends_on = [module.main]
 }
@@ -29,7 +29,7 @@ resource "test_assertions" "l3LbRtdIf" {
   equal "interface_id" {
     description = "interface_id"
     got         = data.nxos_loopback_interface.l3LbRtdIf.interface_id
-    want        = "eth1/10"
+    want        = "lo10"
   }
 
   equal "admin_state" {

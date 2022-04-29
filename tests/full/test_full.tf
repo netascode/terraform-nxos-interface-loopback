@@ -22,7 +22,7 @@ module "main" {
 }
 
 data "nxos_loopback_interface" "l3LbRtdIf" {
-  interface_id = "eth1/10"
+  interface_id = "lo10"
 
   depends_on = [module.main]
 }
@@ -33,7 +33,7 @@ resource "test_assertions" "l3LbRtdIf" {
   equal "interface_id" {
     description = "interface_id"
     got         = data.nxos_loopback_interface.l3LbRtdIf.interface_id
-    want        = "eth1/10"
+    want        = "lo10"
   }
 
   equal "admin_state" {
@@ -50,7 +50,7 @@ resource "test_assertions" "l3LbRtdIf" {
 }
 
 data "nxos_loopback_interface_vrf" "nwRtVrfMbr" {
-  interface_id = "eth1/10"
+  interface_id = "lo10"
 
   depends_on = [module.main]
 }
@@ -61,7 +61,7 @@ resource "test_assertions" "nwRtVrfMbr" {
   equal "interface_id" {
     description = "interface_id"
     got         = data.nxos_loopback_interface_vrf.nwRtVrfMbr.interface_id
-    want        = "eth1/10"
+    want        = "lo10"
   }
 
   equal "vrf_dn" {
@@ -72,7 +72,7 @@ resource "test_assertions" "nwRtVrfMbr" {
 }
 
 data "nxos_ipv4_interface" "ipv4If" {
-  interface_id = "eth1/10"
+  interface_id = "lo10"
   vrf          = "VRF1"
 
   depends_on = [module.main]
@@ -84,7 +84,7 @@ resource "test_assertions" "ipv4If" {
   equal "interface_id" {
     description = "interface_id"
     got         = data.nxos_ipv4_interface.ipv4If.interface_id
-    want        = "eth1/10"
+    want        = "lo10"
   }
 
   equal "vrf" {
@@ -95,7 +95,7 @@ resource "test_assertions" "ipv4If" {
 }
 
 data "nxos_ipv4_interface_address" "ipv4Addr" {
-  interface_id = "eth1/10"
+  interface_id = "lo10"
   vrf          = "VRF1"
   address      = "2.1.1.1/24"
 
@@ -108,7 +108,7 @@ resource "test_assertions" "ipv4Addr" {
   equal "interface_id" {
     description = "interface_id"
     got         = data.nxos_ipv4_interface_address.ipv4Addr.interface_id
-    want        = "eth1/10"
+    want        = "lo10"
   }
 
   equal "vrf" {
