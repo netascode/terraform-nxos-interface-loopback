@@ -12,7 +12,7 @@ Model Documentation: [Link](https://developer.cisco.com/docs/cisco-nexus-3000-an
 ```hcl
 module "nxos_interface_loopback" {
   source  = "netascode/interface-loopback/nxos"
-  version = ">= 0.0.1"
+  version = ">= 0.1.0"
 
   id           = 10
   admin_state  = true
