@@ -11,6 +11,10 @@ terraform {
   }
 }
 
+resource "nxos_vrf" "vrf" {
+  name = "VRF1"
+}
+
 module "main" {
   source = "../.."
 
@@ -19,6 +23,8 @@ module "main" {
   vrf          = "VRF1"
   ipv4_address = "2.1.1.1/24"
   description  = "Terraform was here"
+
+  depends_on = [nxos_vrf.vrf]
 }
 
 data "nxos_loopback_interface" "l3LbRtdIf" {
