@@ -18,7 +18,11 @@ module "nxos_interface_loopback" {
   admin_state  = true
   vrf          = "VRF1"
   ipv4_address = "2.1.1.1/24"
-  description  = "Terraform was here"
+  ipv4_secondary_addresses = [
+    "2.1.2.1/24",
+    "2.1.3.1/24"
+  ]
+  description = "Terraform was here"
 }
 ```
 
@@ -45,6 +49,7 @@ module "nxos_interface_loopback" {
 | <a name="input_description"></a> [description](#input\_description) | Interface description. | `string` | `""` | no |
 | <a name="input_vrf"></a> [vrf](#input\_vrf) | VRF Name. | `string` | `"default"` | no |
 | <a name="input_ipv4_address"></a> [ipv4\_address](#input\_ipv4\_address) | Interface IPv4 address. Allowed format: `192.168.0.1/24`. | `string` | `null` | no |
+| <a name="input_ipv4_secondary_addresses"></a> [ipv4\_secondary\_addresses](#input\_ipv4\_secondary\_addresses) | List of Interface IPv4 secondary addresses. Allowed format: `192.168.0.1/24`. | `list(string)` | `[]` | no |
 
 ## Outputs
 
@@ -58,6 +63,7 @@ module "nxos_interface_loopback" {
 |------|------|
 | [nxos_ipv4_interface.ipv4If](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/ipv4_interface) | resource |
 | [nxos_ipv4_interface_address.ipv4Addr](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/ipv4_interface_address) | resource |
+| [nxos_ipv4_interface_address.secondary_ipv4Addr](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/ipv4_interface_address) | resource |
 | [nxos_loopback_interface.l3LbRtdIf](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/loopback_interface) | resource |
 | [nxos_loopback_interface_vrf.nwRtVrfMbr](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/loopback_interface_vrf) | resource |
 <!-- END_TF_DOCS -->

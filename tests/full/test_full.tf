@@ -22,7 +22,11 @@ module "main" {
   admin_state  = true
   vrf          = "VRF1"
   ipv4_address = "2.1.1.1/24"
-  description  = "Terraform was here"
+  ipv4_secondary_addresses = [
+    "2.1.2.1/24",
+    "2.1.3.1/24"
+  ]
+  description = "Terraform was here"
 
   depends_on = [nxos_vrf.vrf]
 }
@@ -127,5 +131,65 @@ resource "test_assertions" "ipv4Addr" {
     description = "address"
     got         = data.nxos_ipv4_interface_address.ipv4Addr.address
     want        = "2.1.1.1/24"
+  }
+}
+
+data "nxos_ipv4_interface_address" "secondary_ipv4Addr_1" {
+  interface_id = "lo10"
+  vrf          = "VRF1"
+  address      = "2.1.2.1/24"
+
+  depends_on = [module.main]
+}
+
+resource "test_assertions" "secondary_ipv4Addr_1" {
+  component = "secondary_ipv4Addr_1"
+
+  equal "interface_id" {
+    description = "interface_id"
+    got         = data.nxos_ipv4_interface_address.secondary_ipv4Addr_1.interface_id
+    want        = "lo10"
+  }
+
+  equal "vrf" {
+    description = "vrf"
+    got         = data.nxos_ipv4_interface_address.secondary_ipv4Addr_1.vrf
+    want        = "VRF1"
+  }
+
+  equal "address" {
+    description = "address"
+    got         = data.nxos_ipv4_interface_address.secondary_ipv4Addr_1.address
+    want        = "2.1.2.1/24"
+  }
+}
+
+data "nxos_ipv4_interface_address" "secondary_ipv4Addr_2" {
+  interface_id = "lo10"
+  vrf          = "VRF1"
+  address      = "2.1.3.1/24"
+
+  depends_on = [module.main]
+}
+
+resource "test_assertions" "secondary_ipv4Addr_2" {
+  component = "secondary_ipv4Addr_2"
+
+  equal "interface_id" {
+    description = "interface_id"
+    got         = data.nxos_ipv4_interface_address.secondary_ipv4Addr_2.interface_id
+    want        = "lo10"
+  }
+
+  equal "vrf" {
+    description = "vrf"
+    got         = data.nxos_ipv4_interface_address.secondary_ipv4Addr_2.vrf
+    want        = "VRF1"
+  }
+
+  equal "address" {
+    description = "address"
+    got         = data.nxos_ipv4_interface_address.secondary_ipv4Addr_2.address
+    want        = "2.1.3.1/24"
   }
 }
