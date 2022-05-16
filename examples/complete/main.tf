@@ -1,6 +1,6 @@
 module "nxos_interface_loopback" {
   source  = "netascode/interface-loopback/nxos"
-  version = ">= 0.1.0"
+  version = ">= 0.2.0"
 
   id           = 10
   admin_state  = true

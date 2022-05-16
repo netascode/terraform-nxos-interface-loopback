@@ -12,7 +12,7 @@ Model Documentation: [Link](https://developer.cisco.com/docs/cisco-nexus-3000-an
 ```hcl
 module "nxos_interface_loopback" {
   source  = "netascode/interface-loopback/nxos"
-  version = ">= 0.1.0"
+  version = ">= 0.2.0"
 
   id           = 10
   admin_state  = true
@@ -31,13 +31,13 @@ module "nxos_interface_loopback" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
-| <a name="requirement_nxos"></a> [nxos](#requirement\_nxos) | >= 0.3.7 |
+| <a name="requirement_nxos"></a> [nxos](#requirement\_nxos) | >= 0.3.11 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_nxos"></a> [nxos](#provider\_nxos) | >= 0.3.7 |
+| <a name="provider_nxos"></a> [nxos](#provider\_nxos) | >= 0.3.11 |
 
 ## Inputs
 
