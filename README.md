@@ -56,6 +56,9 @@ module "nxos_interface_loopback" {
 | Name | Description |
 |------|-------------|
 | <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of the object. |
+| <a name="output_device"></a> [device](#output\_device) | A device name from the provider configuration. |
+| <a name="output_id"></a> [id](#output\_id) | Interface ID. |
+| <a name="output_ipv4_address"></a> [ipv4\_address](#output\_ipv4\_address) | Interface IPv4 address. |
 
 ## Resources
 
